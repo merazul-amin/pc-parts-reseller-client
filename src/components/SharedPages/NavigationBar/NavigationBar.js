@@ -23,6 +23,7 @@ const NavigationBar = () => {
             user?.email ?
                 <>
                     <li><button onClick={handleLogOut} className='btn btn-error'>Log Out</button></li>
+                    <li className='text-white'>{user?.email}</li>
 
                 </>
                 :

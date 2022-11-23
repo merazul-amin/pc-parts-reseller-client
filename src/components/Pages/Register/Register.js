@@ -1,7 +1,11 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { AuthContext } from '../../../contexts/UserContext/UserContext';
 
 const Register = () => {
+    const { createUser } = useContext(AuthContext);
+    const navigate = useNavigate();
     const handleRegister = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -9,7 +13,19 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         const role = form.role.value;
-        console.log(name, email, password, role);
+
+        createUser(email, password)
+            .then(res => {
+                const user = res.user;
+                console.log(user)
+                toast.success('Registration Successful.')
+                form.reset();
+                navigate('/');
+            })
+            .catch(err => {
+                console.log(err);
+            })
+
     }
     return (
         <div className='w-[95%] lg:w-[50%] mx-auto'>
@@ -34,9 +50,11 @@ const Register = () => {
 
                 </select>
 
+
+                <p className='mb-3'><small>Already have an account? <Link className='underline text-blue-400 font-bold' to='/login'>Log In</Link> </small></p>
+
                 <button type='submit' className='btn btn-success w-full my-5'>Register</button>
 
-                <p className='mb-3'><small>Already have an account? <Link className='underline text-blue-400 font-bold' to='login'>Log In</Link> </small></p>
 
 
             </form>
