@@ -16,20 +16,20 @@ const NavigationBar = () => {
             });
     }
     const navItems = <>
-        <li className='text-white font-bold hover:text-black'><Link to='/'>Home</Link></li>
-        <li className='text-white font-bold hover:text-black'><Link to='/blogs'>Blogs</Link></li>
-        <li className='text-white font-bold hover:text-black'><Link to='/dashboard'>Dashboard</Link></li>
+        <li className='text-black hover:text-red-600 font-bold'><Link to='/'>Home</Link></li>
+        <li className='text-black hover:text-red-600 font-bold'><Link to='/blogs'>Blogs</Link></li>
+        <li className='text-black hover:text-red-600 font-bold'><Link to='/dashboard'>Dashboard</Link></li>
         {
             user?.email ?
                 <>
                     <li><button onClick={handleLogOut} className='btn btn-error'>Log Out</button></li>
-                    <li className='text-white'>{user?.email}</li>
+                    <li className='text-black'>{user?.email}</li>
 
                 </>
                 :
                 <>
-                    <li className='text-white font-bold hover:text-black'><Link to='/login'>Log In</Link></li>
-                    <li className='text-white font-bold hover:text-black'><Link to='/register'>Register</Link></li>
+                    <li className='text-black hover:text-red-600 font-bold'><Link to='/login'>Log In</Link></li>
+                    <li className='text-black hover:text-red-600 font-bold'><Link to='/register'>Register</Link></li>
                 </>
 
 
@@ -38,10 +38,10 @@ const NavigationBar = () => {
     </>
     return (
         <div>
-            <div className="navbar" style={{ backgroundColor: '#0B3D60' }}>
+            <div className="navbar bg-base-300" >
                 <div className="navbar-start flex justify-between lg:block w-[100%]">
 
-                    <div className="dropdown text-white">
+                    <div className="dropdown text-black">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
@@ -49,7 +49,7 @@ const NavigationBar = () => {
                             {navItems}
                         </ul>
                     </div>
-                    <Link to='/' className="btn btn-ghost normal-case text-3xl text-white">
+                    <Link to='/' className="btn btn-ghost normal-case text-3xl text-black font-bold">
                         Pc Reseller Zone
                     </Link>
                 </div>
