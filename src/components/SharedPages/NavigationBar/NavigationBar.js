@@ -6,6 +6,7 @@ import { AuthContext } from '../../../contexts/UserContext/UserContext';
 
 const NavigationBar = () => {
     const { user, logOut } = useContext(AuthContext);
+    console.log(user);
     const handleLogOut = () => {
         logOut()
             .then(() => {
@@ -18,6 +19,24 @@ const NavigationBar = () => {
         <li className='text-white font-bold hover:text-black'><Link to='/'>Home</Link></li>
         <li className='text-white font-bold hover:text-black'><Link to='/blogs'>Blogs</Link></li>
         <li className='text-white font-bold hover:text-black'><Link to='/dashboard'>Dashboard</Link></li>
+        {
+            user?.email ?
+                <>
+                    <li><button onClick={handleLogOut} className='btn btn-error'>Log Out</button></li>
+
+                </>
+                :
+                <>
+                    <li className='text-white font-bold hover:text-black'><Link to='/login'>Log In</Link></li>
+                    <li className='text-white font-bold hover:text-black'><Link to='/register'>Register</Link></li>
+                </>
+
+
+        }
+
+
+
+
 
 
     </>
