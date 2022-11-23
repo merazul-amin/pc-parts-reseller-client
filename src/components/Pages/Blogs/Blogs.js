@@ -6,126 +6,64 @@ const Blogs = () => {
 
             {/* Question 1 */}
             <div className='my-4'>
-                <h1 className='text-2xl my-3'>1. What are the Difference between SQL and NoSQL?</h1>
-                <div className="overflow-x-auto">
-                    <table className="table table-zebra w-full">
+                <h1 className='text-2xl my-3'>1. What are the different ways to manage a state in a React application?</h1>
 
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>SQL</th>
-                                <th>NoSQL</th>
+                <div>
+                    <h1>There are many ways to manage react state. Such as: Local state,
+                        Global state,
+                        Server state,
+                        URL state,  Control State, Session State. Some Details is given value:-</h1><br />
 
-                            </tr>
-                        </thead>
-                        <tbody>
+                    <p className='text-xl font-bold'>Session State</p> <br />
+                    <p>
+                        So far, we have discussed the following states:
 
-                            <tr>
-                                <th>1</th>
-                                <td>RELATIONAL DATABASE MANAGEMENT SYSTEM (RDBMS)</td>
-                                <td>Non-relational or distributed database system</td>
+                        1. Data/ Communication State- Predictable shaped states which are required application-wide
 
-                            </tr>
+                        2. Control State- Unpredictable shaped states which are not required throughout
 
-                            <tr>
-                                <th>2</th>
-                                <td>These databases have fixed or static or predefined schema</td>
-                                <td>They have dynamic schema</td>
+                        Now lets discuss a state which is required to be available throughout the application but has a lesser well-defined shape.
 
-                            </tr>
+                        Session state contains information about the user of the application such as user id, permissions, passwords, etc. It may also include information on how the application should work according to a particular users preferences.
 
-                            <tr>
-                                <th>3</th>
-                                <td>These databases are not suited for hierarchical data storage.</td>
-                                <td>These databases are best suited for hierarchical data storage.</td>
+                        While Session state can store similar patterned components like Control state, there is a thick difference between both the information stored. For example, you may have a part of a Control state information that represents parts of a tree view, you can find kind of similar data in the Session state, but it will definitely be different from the Control state.
 
-                            </tr>
-                            <tr>
-                                <th>3</th>
-                                <td>These databases are best suited for complex queries.</td>
-                                <td>These databases are not so good for complex queries</td>
-                            </tr>
-                            <tr>
-                                <th>3</th>
-                                <td>Follows ACID property</td>
-                                <td>	Follows CAP(consistency, availability, partition tolerance)</td>
-                            </tr>
-                            <tr>
-                                <th>3</th>
-                                <td>Examples: MySQL, PostgreSQL, Oracle, MS-SQL Server etc</td>
-                                <td>Examples: MongoDB, GraphQL, HBase, Neo4j, Cassandra etc</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                        Session states can only be read when a component is mounted, which means that you store a copy of the information already present in the Control state. It stores personal preferences based on the users choices to depict the data.
+                    </p>
+
                 </div>
+
+                <p className='text-xl font-bold'>Location State</p> <br />
+                <p>
+                    Location state is the UTF-8 display that appears in your URL bar. In fact, the L in URL stands for Locator! One of the most interesting facts about Location state is that you can give directions to a user to parts of the application that do not have unique URLs associated with them. Also, the HTML5 History API allows you to store states separately from the specific URL.
+
+                    Unlike Data and Communication state, which follow a particular pattern or a shape to store information, location state instead stores information in a simple string like structure. However, one of the most interesting things about location states is that it typically stores URLs in the forms of string-like structures even when they dont actually represent strings.
+
+                    URLs represent a hierarchy of components, overlaid on one top of the other. One can build a location tree using different URLs that represent different parts of your application.
+                </p>
+
 
             </div>
             {/* question 2 */}
             <div>
-                <h1 className='text-2xl my-3'>2. What is JWT, and how does it work?</h1>
+                <h1 className='text-2xl my-3'>2. How does prototypical inheritance work?</h1>
                 <div>
-                    JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. This information can be verified and trusted because it is digitally signed. JWTs can be signed using a secret (with the HMAC algorithm) or a public/private key pair using RSA or ECDSA. <br />
-
-                    Although JWTs can be encrypted to also provide secrecy between parties, we will focus on signed tokens. Signed tokens can verify the integrity of the claims contained within it, while encrypted tokens hide those claims from other parties. When tokens are signed using public/private key pairs, the signature also certifies that only the party holding the private key is the one that signed it. <br />
-                    JWTs differ from other web tokens in that they contain a set of claims. Claims are used to transmit information between two parties. What these claims are depends on the use case at hand. For example, a claim may assert who issued the token, how long it is valid for, or what permissions the client has been granted.
+                    Every object with its methods and properties contains an internal and hidden property known as [[Prototype]]. The Prototypal Inheritance is a feature in javascript used to add methods and properties in objects. It is a method by which an object can inherit the properties and methods of another object. Traditionally, in order to get and set the [[Prototype]] of an object, we use Object.getPrototypeOf and Object.setPrototypeOf. Nowadays, in modern language, it is being set using __proto__.
                 </div>
             </div>
 
             {/* question 3 */}
             <div className='my-9'>
-                <h1 className='text-2xl my-3'>3. What is the difference between javascript and NodeJS?</h1>
-                <div className="overflow-x-auto">
-                    <table className="table table-zebra w-full">
+                <h1 className='text-2xl my-3'>3. React vs. Angular vs. Vue?</h1>
+                <div>
+                    <span className='text-xl font-bold'>Angular</span>, developed by Google, was first released in 2010, making it the oldest of the lot. It is a TypeScript-based JavaScript framework. A substantial shift occurred in 2016 on the release of Angular 2 (and the dropping of the “JS” from the original name - AngularJS). Angular 2+ is known as just Angular. Although AngularJS (version 1) still gets updates, we will focus the discussion on Angular. <br />
 
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>JavaScript</th>
-                                <th>NodeJS</th>
 
-                            </tr>
-                        </thead>
-                        <tbody>
+                    <span className='text-xl font-bold'>Vue</span>, also known as Vue.js, is the youngest member of the group. It was developed by ex-Google employee Evan You in 2014. Over the last several years, Vue has seen a substantial shift in popularity, even though it doesnt have the backing of a large company. The most current version is always announced on the official Vue website on their releases page. Contributors for Vue are supported by Patreon. It should be noted that Vue also has its own GitHub repo, and functions using TypeScript.
 
-                            <tr>
-                                <th>1</th>
-                                <td>
-                                    Javascript is a programming language that is used for writing scripts on the website. </td>
-                                <td>NodeJS is a Javascript runtime environment.</td>
+                    Further reading: Vue.js Tutorial for Beginner Developers <br />
 
-                            </tr>
-
-                            <tr>
-                                <th>2</th>
-                                <td>Javascript can only be run in the browsers.</td>
-                                <td>We can run Javascript outside the browser with the help of NodeJS.</td>
-
-                            </tr>
-
-                            <tr>
-                                <th>3</th>
-                                <td>	It is basically used on the client-side.</td>
-                                <td>It is mostly used on the server-side</td>
-
-                            </tr>
-                            <tr>
-                                <th>3</th>
-                                <td>Javascript is capable enough to add HTML and play with the DOM. </td>
-                                <td>Nodejs does not have capability to add HTML tags.</td>
-                            </tr>
-                            <tr>
-                                <th>3</th>
-                                <td>Javascript can run in any browser engine as like JS core in safari and Spidermonkey in Firefox.
-                                </td>
-                                <td>V8 is the Javascript engine inside of node.js that parses and runs Javascript. </td>
-                            </tr>
-                            <tr>
-                                <th>3</th>
-                                <td>Javascript is used in frontend development.</td>
-                                <td>Nodejs is used in server-side development.</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <span className='text-xl font-bold'>React</span>, developed by Facebook, was initially released in 2013. Facebook uses React extensively in their products (Facebook, Instagram, and WhatsApp). Similar to Vue, the React developers also announce their newest version on the blog section of the React website.
                 </div>
 
             </div>
@@ -133,14 +71,9 @@ const Blogs = () => {
 
             {/* Question 4 */}
             <div className='my-5'>
-                <h1 className='my-4 text-3xl'>4. How does NodeJS handle multiple requests at the same time?</h1>
+                <h1 className='my-4 text-3xl'>4. What is a unit test? Why should we write unit tests?</h1>
                 <div>
-                    NodeJS receives multiple client requests and places them into EventQueue. NodeJS is built with the concept of event-driven architecture. NodeJS has its own EventLoop which is an infinite loop that receives requests and processes them. EventLoop is the listener for the EventQueue.
-
-                    If NodeJS can process the request without I/O blocking then the event loop would itself process the request and sends the response back to the client by itself. But, it is possible to process multiple requests parallelly using the NodeJS cluster module or worker_threads module. <br />
-
-                    How is NodeJS better than traditional multithreaded request response model?
-                    With traditional multithreaded request/response model, every client gets a different thread where as with NodeJS, the simpler request are all handled directly by the EventLoop. This is an optimization of thread pool resources and there is no overhead of creating the threads for every client request.
+                    The main objective of unit testing is to isolate written code to test and determine if it works as intended. Unit testing is an important step in the development process, because if done correctly, it can help detect early flaws in code which may be more difficult to find in later testing stages.
                 </div>
             </div>
         </div>
