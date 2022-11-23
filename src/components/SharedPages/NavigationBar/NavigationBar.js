@@ -6,7 +6,7 @@ import { AuthContext } from '../../../contexts/UserContext/UserContext';
 
 const NavigationBar = () => {
     const { user, logOut } = useContext(AuthContext);
-    console.log(user);
+
     const handleLogOut = () => {
         logOut()
             .then(() => {
@@ -33,11 +33,6 @@ const NavigationBar = () => {
 
 
         }
-
-
-
-
-
 
     </>
     return (
