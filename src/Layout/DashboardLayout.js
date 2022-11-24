@@ -6,7 +6,6 @@ import useCheckRole from '../hooks/useCheckRole';
 
 const DashboardLayout = () => {
     const { user } = useContext(AuthContext);
-    console.log(user);
     const [role] = useCheckRole(user?.email);
 
 
@@ -15,12 +14,12 @@ const DashboardLayout = () => {
             <NavigationBar></NavigationBar>
 
 
-            <div className="drawer drawer-mobile  ">
+            <div className="drawer drawer-mobile">
                 <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content">
                     <Outlet></Outlet>
                 </div>
-                <div className="drawer-side bg-purple-400">
+                <div className="drawer-side border shadow-xl">
                     <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 text-base-content">
                         {

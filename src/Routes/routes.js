@@ -13,6 +13,7 @@ import Register from "../components/Pages/Register/Register";
 import ErrorPage from "../components/SharedPages/ErrorPage/ErrorPage";
 import DashboardLayout from "../Layout/DashboardLayout";
 import Layout from "../Layout/Layout";
+import AdminRoute from "./AdminRoute";
 import PrivateRoute from "./PrivateRoute";
 
 const routes = createBrowserRouter([
@@ -41,8 +42,8 @@ const routes = createBrowserRouter([
             { path: '/dashboard/myOrders', element: <MyOrders></MyOrders> },
             { path: '/dashboard/addProduct', element: <AddProduct></AddProduct> },
             { path: '/dashboard/myProducts', element: <MyProducts></MyProducts> },
-            { path: '/dashboard/allSellers', element: <AllSellers></AllSellers> },
-            { path: '/dashboard/allBuyers', element: <AllBuyers></AllBuyers> },
+            { path: '/dashboard/allSellers', element: <AdminRoute><AllSellers></AllSellers></AdminRoute> },
+            { path: '/dashboard/allBuyers', element: <AdminRoute><AllBuyers></AllBuyers></AdminRoute> },
         ]
     }
 ]);
