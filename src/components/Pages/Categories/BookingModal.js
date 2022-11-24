@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../../contexts/UserContext/UserContext';
 
 const BookingModal = ({ category, setCategory }) => {
@@ -13,6 +14,8 @@ const BookingModal = ({ category, setCategory }) => {
         const phone = e.target.phone.value;
         const meetingLocation = e.target.location.value;
         console.log(userName, email, product, productId, phone, meetingLocation);
+        toast.success('Successfully Booked This Item.');
+        setCategory(null);
 
     }
     return (
