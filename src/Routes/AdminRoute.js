@@ -6,10 +6,11 @@ import useCheckRole from '../hooks/useCheckRole';
 
 const AdminRoute = ({ children }) => {
     const { user, loading } = useContext(AuthContext);
-    const [role] = useCheckRole(user?.email);
+    const [role, roleIsLoading] = useCheckRole(user?.email);
+
 
     const location = useLocation();
-    if (loading) {
+    if (loading || roleIsLoading) {
         return <Spinner></Spinner>
     }
     if (user?.email && role === 'admin') {
