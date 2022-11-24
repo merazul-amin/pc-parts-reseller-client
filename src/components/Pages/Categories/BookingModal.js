@@ -1,12 +1,19 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../contexts/UserContext/UserContext';
 
-const BookingModal = ({ category }) => {
+const BookingModal = ({ category, setCategory }) => {
     const { user } = useContext(AuthContext);
-    const { condition, description, isVerified, location, originalPrice, phone, photoUrl, productName, pruchaseDate, resalePrice, seller, sellerPhoto, used, _id, postingDate } = category;
+    const { condition, description, isVerified, location, originalPrice, phone, photoUrl, productName, purchaseDate, resalePrice, seller, sellerPhoto, used, _id, postingDate } = category;
     const handleBooking = e => {
         e.preventDefault();
-        console.log()
+        const userName = user?.displayName;
+        const email = user?.email;
+        const product = productName;
+        const productId = _id;
+        const phone = e.target.phone.value;
+        const meetingLocation = e.target.location.value;
+        console.log(userName, email, product, productId, phone, meetingLocation);
+
     }
     return (
         <div>
@@ -22,9 +29,15 @@ const BookingModal = ({ category }) => {
                     <h1>Email: {user?.email}</h1>
                     <h1>Product Name: {productName}</h1>
 
+                    <h1 className='font-bold mt-3'>Phone Number</h1>
+                    <input required name='phone' type="number" placeholder="Your Phone" className="input input-bordered input-warning w-full " />
+
+                    <h1 className='font-bold mt-3'>Meeting Location</h1>
+                    <input required name='location' type="text" placeholder="Location" className="input input-bordered input-warning w-full " />
+
 
                     <br />
-                    <button type='submit' className='btn btn-success'>Submit</button>
+                    <button type='submit' className='btn btn-success mt-3'>Submit</button>
                 </form>
             </div>
         </div>
