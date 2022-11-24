@@ -17,8 +17,8 @@ const ProductsCategories = () => {
             <h1 className='text-5xl my-5 font-bold '>All Categories</h1>
             <div className='text-center'>
                 {
-                    categories.length > 0 && categories.map(category => <>
-                        <p className='font-bold text-2xl text-blue-600 underline'>
+                    categories.length > 0 && categories.map((category, index) => <>
+                        <p key={index} className='font-bold text-2xl text-blue-600 underline'>
                             <Link to={`category/${category._id}`}>{category.partsName}</Link>
                         </p>
 

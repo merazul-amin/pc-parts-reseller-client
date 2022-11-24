@@ -31,6 +31,13 @@ const UserContext = ({ children }) => {
     }
 
 
+    const setUserInfo = (name, photo) => {
+        return updateProfile(auth.currentUser, {
+            displayName: name,
+            photoURL: photo
+        })
+    }
+
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (loggedUser) => {
@@ -43,7 +50,7 @@ const UserContext = ({ children }) => {
     }, [])
 
 
-    const userInfo = { user, loading, createUser, logIn, googleLogIn, logOut }
+    const userInfo = { user, loading, createUser, logIn, googleLogIn, logOut, setUserInfo }
 
     return (
         <AuthContext.Provider value={userInfo}>

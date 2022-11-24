@@ -1,5 +1,6 @@
 import React from 'react';
 import { GoVerified } from "react-icons/go";
+import BookingModal from './BookingModal';
 const SingleCategory = ({ category }) => {
     console.log(category);
     const { condition, description, isVerified, location, originalPrice, phone, photoUrl, productName, pruchaseDate, resalePrice, seller, sellerPhoto, used, _id, postingDate } = category;
@@ -29,9 +30,12 @@ const SingleCategory = ({ category }) => {
                     </div>
 
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Book Now</button>
+                        {/* <button className="btn btn-primary">Book Now</button> */}
+                        {/* The button to open modal */}
+                        <label htmlFor="bookingModal" className="btn btn-primary">Book Now</label>
                     </div>
                 </div>
+                <BookingModal category={category}></BookingModal>
             </div>
         </div>
     );

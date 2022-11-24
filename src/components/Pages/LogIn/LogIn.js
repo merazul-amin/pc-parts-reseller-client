@@ -1,10 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../../contexts/UserContext/UserContext';
 
 const LogIn = () => {
-    const { logIn } = useContext(AuthContext);
+    const { logIn, googleLogIn } = useContext(AuthContext);
+    const [logError, setLogError] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
@@ -32,8 +33,54 @@ const LogIn = () => {
         }
 
     }
+
+    const handleGoogleLogIn = () => {
+
+        googleLogIn()
+            .then(res => {
+                setLogError('');
+                const user = res.user;
+                const email = { email: user.email };
+
+
+
+                const userInfo = { email: user.email, role: 'buyer' };
+
+                //set User in db
+                fetch(`http://localhost:5000/users`, {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(userInfo)
+                })
+                    .then(res => res.json())
+                    .then(data => console.log(data))
+
+                //handle jwt token 
+
+                // fetch('https://assignment-11-server-khaki.vercel.app/jwt', {
+                //     method: 'POST',
+                //     headers: {
+                //         'content-type': 'application/json'
+                //     },
+                //     body: JSON.stringify(email)
+                // })
+                //     .then(res => res.json())
+                //     .then(data => {
+                //         localStorage.setItem('token', data.token);
+                //     })
+
+                toast.success('Log In Successful.');
+                navigate(from, { replace: true });
+            })
+            .catch(err => {
+                setLogError(`${err.message}`);
+            })
+    }
+
     return (
-        <div className='w-[95%] lg:w-[50%] mx-auto'>
+        <div className='w-[95%] lg:w-[50%] my-10 mx-auto'>
 
 
             <form onSubmit={handleLogin} >
@@ -53,7 +100,7 @@ const LogIn = () => {
 
             </form>
 
-            <button className='btn btn-primary w-full'>LogIn With Google</button>
+            <button onClick={handleGoogleLogIn} className='btn btn-primary w-full'>LogIn With Google</button>
 
 
         </div>
