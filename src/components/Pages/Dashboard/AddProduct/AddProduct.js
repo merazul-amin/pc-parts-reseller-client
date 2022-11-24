@@ -12,6 +12,7 @@ const AddProduct = () => {
 
         const productName = form.productName.value;
         const productPrice = form.productPrice.value;
+        const buyingPrice = form.buyingPrice.value;
         const photoUrl = form.photoUrl.value;
         const dateOfPurchase = form.date.value;
         const condition = form.condition.value;
@@ -21,9 +22,38 @@ const AddProduct = () => {
         const sellerName = user?.displayName;
         const sellerEmail = user?.email;
         console.log(productName, productPrice, photoUrl, dateOfPurchase, condition, phone, location, description, sellerEmail, sellerName);
+        const productInfo = {
+            productName,
+            productPrice,
+            buyingPrice,
+            photoUrl,
+            dateOfPurchase,
+            condition,
+            phone,
+            location,
+            description,
+            sellerName,
+            sellerEmail
+        }
 
-        toast.success('Product Added');
-        navigate('/dashboard/myProducts');
+        fetch('http://localhost:5000/products', {
+            method: 'POST', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(productInfo),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log('Success:', data);
+                toast.success('Product Added');
+                navigate('/dashboard/myProducts');
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+
+
 
     }
     return (
@@ -33,8 +63,11 @@ const AddProduct = () => {
                 <p className='text-xl'>Product Name</p>
                 <input required name='productName' type="text" placeholder="Type here" className="input input-bordered input-primary w-full lg:w-[100%]" />
 
-                <p className='text-xl'>Product Price</p>
+                <p className='text-xl'>Asking Price</p>
                 <input required name='productPrice' type="text" placeholder="Type here" className="input input-bordered input-primary w-full lg:w-[100%]" />
+
+                <p className='text-xl'>Buying Price</p>
+                <input required name='buyingPrice' type="text" placeholder="Type here" className="input input-bordered input-primary w-full lg:w-[100%]" />
 
                 <p className='text-xl'>Product Photo Url</p>
                 <input required name='photoUrl' type="text" placeholder="Type here" className="input input-bordered input-primary w-full lg:w-[100%]" />
