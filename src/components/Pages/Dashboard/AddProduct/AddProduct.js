@@ -33,7 +33,9 @@ const AddProduct = () => {
             location,
             description,
             sellerName,
-            sellerEmail
+            sellerEmail,
+            status: 'available',
+            isAdvertised: false
         }
 
         fetch('http://localhost:5000/products', {

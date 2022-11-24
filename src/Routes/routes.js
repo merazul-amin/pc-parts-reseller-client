@@ -41,7 +41,10 @@ const routes = createBrowserRouter([
             { path: '/dashboard', element: <DashboardHome></DashboardHome> },
             { path: '/dashboard/myOrders', element: <MyOrders></MyOrders> },
             { path: '/dashboard/addProduct', element: <AddProduct></AddProduct> },
-            { path: '/dashboard/myProducts', element: <MyProducts></MyProducts> },
+            {
+                path: '/dashboard/myProducts',
+                element: <MyProducts></MyProducts>
+            },
             { path: '/dashboard/allSellers', element: <AdminRoute><AllSellers></AllSellers></AdminRoute> },
             { path: '/dashboard/allBuyers', element: <AdminRoute><AllBuyers></AllBuyers></AdminRoute> },
         ]
