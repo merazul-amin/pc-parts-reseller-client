@@ -23,6 +23,23 @@ const LogIn = () => {
                     const user = userCredential.user;
                     const email = { email: user.email };
 
+                    const userInfo = {
+                        name: user.displayName,
+                        email: user.email,
+                        role: 'buyer'
+                    };
+
+                    //set User in db
+                    fetch(`http://localhost:5000/users`, {
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify(userInfo)
+                    })
+                        .then(res => res.json())
+                        .then(data => console.log(data))
+
                     toast.success('Log In Successful.');
                     form.reset();
                     navigate(from, { replace: true });

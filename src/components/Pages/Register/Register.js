@@ -24,7 +24,7 @@ const Register = () => {
                         toast.success(`Welcome ${name}`);
                         navigate('/');
 
-                        const userInfo = { email: user.email, role };
+                        const userInfo = { name, email: user.email, role };
 
                         //set User in db
                         fetch(`http://localhost:5000/users`, {
@@ -83,7 +83,7 @@ const Register = () => {
                 //     .then(data => {
                 //         localStorage.setItem('token', data.token);
                 //     })
-                const userInfo = { email: user.email, role: 'buyer' };
+                const userInfo = { name: user.displayName, email: user.email, role: 'buyer' };
 
                 //set User in db
                 fetch(`http://localhost:5000/users`, {

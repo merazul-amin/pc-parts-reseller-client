@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 
 const AllSellers = () => {
-    const { isLoading, error, data: sellers = [] } = useQuery({
+    const { isLoading, error, data: sellers = [], refetch } = useQuery({
         queryKey: ['sellers'],
         queryFn: () =>
             fetch('http://localhost:5000/sellers')
@@ -15,7 +15,11 @@ const AllSellers = () => {
             method: 'DELETE'
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                if (data.deletedCount > 0) {
+                    refetch()
+                }
+            })
     }
     return (
         <div>
@@ -34,7 +38,7 @@ const AllSellers = () => {
                         </thead>
                         <tbody>
                             {
-                                sellers.length > 0 && sellers.map((seller, i) => <tr>
+                                sellers.length > 0 && sellers.map((seller, i) => <tr key={i}>
                                     <th>{i + 1}</th>
                                     <td>{seller?.name}</td>
                                     <td>{seller?.email}</td>

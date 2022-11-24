@@ -13,8 +13,9 @@ const Categories = () => {
 
             <div className='grid grid-cols-1 lg:grid-cols-2 lg:w-[90%] mx-auto'>
                 {
-                    categories.map(category => <SingleCategory
+                    categories.map((category, i) => <SingleCategory
                         category={category}
+                        key={i}
                         setCategory={setCategory}
                     ></SingleCategory>)
                 }
