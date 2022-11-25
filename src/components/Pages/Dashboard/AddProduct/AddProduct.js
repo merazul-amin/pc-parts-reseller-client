@@ -38,7 +38,7 @@ const AddProduct = () => {
             isAdvertised: false
         }
 
-        fetch('http://localhost:5000/products', {
+        fetch('https://server-411c60vt9-merazul-amin.vercel.app/products', {
             method: 'POST', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',

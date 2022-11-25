@@ -29,7 +29,7 @@ const routes = createBrowserRouter([
             {
                 path: '/category/:id',
                 element: <PrivateRoute><Categories></Categories></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
+                loader: ({ params }) => fetch(`https://server-411c60vt9-merazul-amin.vercel.app/category/${params.id}`)
             }
         ]
     },

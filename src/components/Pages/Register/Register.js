@@ -27,7 +27,7 @@ const Register = () => {
                         const userInfo = { name, email: user.email, role };
 
                         //set User in db
-                        fetch(`http://localhost:5000/users`, {
+                        fetch(`https://server-411c60vt9-merazul-amin.vercel.app/users`, {
                             method: 'POST',
                             headers: {
                                 'content-type': 'application/json'
@@ -86,7 +86,7 @@ const Register = () => {
                 const userInfo = { name: user.displayName, email: user.email, role: 'buyer' };
 
                 //set User in db
-                fetch(`http://localhost:5000/users`, {
+                fetch(`https://server-411c60vt9-merazul-amin.vercel.app/users`, {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

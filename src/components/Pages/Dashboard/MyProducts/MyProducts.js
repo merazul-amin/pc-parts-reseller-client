@@ -9,7 +9,7 @@ const MyProducts = () => {
     const { isLoading, error, data: products = [] } = useQuery({
         queryKey: ['myProducts'],
         queryFn: () =>
-            fetch(`http://localhost:5000/myProducts/${user?.email}`)
+            fetch(`https://server-411c60vt9-merazul-amin.vercel.app/myProducts/${user?.email}`)
                 .then(res =>
                     res.json()
                 )
