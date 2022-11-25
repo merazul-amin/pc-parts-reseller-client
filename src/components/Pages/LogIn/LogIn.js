@@ -21,24 +21,24 @@ const LogIn = () => {
                     // Signed in 
 
                     const user = userCredential.user;
-                    const email = { email: user.email };
+                    const UserEmail = { email: user.email };
 
-                    const userInfo = {
-                        name: user.displayName,
-                        email: user.email,
-                        role: 'buyer'
-                    };
+                    const JwtEmail = { email: user.email };
 
-                    //set User in db
-                    fetch(`http://localhost:5000/users`, {
+                    //handle jwt token 
+
+                    fetch('http://localhost:5000/jwt', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json'
                         },
-                        body: JSON.stringify(userInfo)
+                        body: JSON.stringify(JwtEmail)
                     })
                         .then(res => res.json())
-                        .then(data => console.log(data))
+                        .then(data => {
+                            localStorage.setItem('token', data.token);
+                        })
+
 
                     toast.success('Log In Successful.');
                     form.reset();
@@ -57,7 +57,7 @@ const LogIn = () => {
             .then(res => {
                 setLogError('');
                 const user = res.user;
-                const email = { email: user.email };
+                const UserEmail = { email: user.email };
 
 
 
@@ -74,19 +74,21 @@ const LogIn = () => {
                     .then(res => res.json())
                     .then(data => console.log(data))
 
+                const JwtEmail = { email: user.email };
+
                 //handle jwt token 
 
-                // fetch('https://assignment-11-server-khaki.vercel.app/jwt', {
-                //     method: 'POST',
-                //     headers: {
-                //         'content-type': 'application/json'
-                //     },
-                //     body: JSON.stringify(email)
-                // })
-                //     .then(res => res.json())
-                //     .then(data => {
-                //         localStorage.setItem('token', data.token);
-                //     })
+                fetch('http://localhost:5000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(JwtEmail)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        localStorage.setItem('token', data.token);
+                    })
 
                 toast.success('Log In Successful.');
                 navigate(from, { replace: true });
