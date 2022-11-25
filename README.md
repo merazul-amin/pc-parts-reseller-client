@@ -17,6 +17,7 @@
 - I used React for frontend library, node and express for server and mongodb for database.
 - For Authentication I used Firebase.
 - For css framework I used tailwind css and daisyui.
+- I implemented jwt token , react query and axios in this project.
 
 
 ### Important Links

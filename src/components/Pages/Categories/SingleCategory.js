@@ -19,7 +19,6 @@ const SingleCategory = ({ category, setCategory }) => {
                 <figure><img className='h-[300px] w-full' src={photoUrl} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{productName}</h2>
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
                     <p>Location:- {location}</p>
                     <p>Resale Price:- {resalePrice}</p>
                     <p>Original Price:- {originalPrice}</p>

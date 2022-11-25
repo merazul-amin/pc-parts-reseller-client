@@ -14,6 +14,7 @@ const AddProduct = () => {
         const productName = form.productName.value;
         const category = form.category.value;
         const productPrice = form.productPrice.value;
+        const used = form.used.value;
         const buyingPrice = form.buyingPrice.value;
         const photoUrl = form.photoUrl.value;
         const dateOfPurchase = form.date.value;
@@ -52,7 +53,8 @@ const AddProduct = () => {
             isVerified: false,
             sellerPhoto: user?.photoURL,
             categoryName: category,
-            postingDate: new Date()
+            postingDate: new Date(),
+            used
         }
         console.log(productInfo);
 

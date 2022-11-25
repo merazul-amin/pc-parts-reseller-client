@@ -19,12 +19,11 @@ const LogIn = () => {
             logIn(email, password)
                 .then((userCredential) => {
                     // Signed in 
-
                     const user = userCredential.user;
                     const UserEmail = { email: user.email };
 
                     const JwtEmail = { email: user.email };
-
+                    setLogError('');
                     //handle jwt token 
 
                     fetch('http://localhost:5000/jwt', {
@@ -45,7 +44,7 @@ const LogIn = () => {
                     navigate(from, { replace: true });
                 })
                 .catch((error) => {
-
+                    setLogError(error.message)
                 });
         }
 
@@ -60,7 +59,7 @@ const LogIn = () => {
                 const UserEmail = { email: user.email };
 
 
-
+                setLogError('');
                 const userInfo = { email: user.email, role: 'buyer' };
 
                 //set User in db
@@ -109,6 +108,9 @@ const LogIn = () => {
 
                 <h1 className='text-2xl mt-2'>Your Password</h1>
                 <input name='password' type="password" placeholder="Your Password" className="input input-bordered input-success w-full" />
+                {
+                    logError && <p className='text-red-400 font-bold'>{logError}</p>
+                }
 
                 <p className='mb-3'><small>New here? <Link className='underline text-blue-400 font-bold' to='/register'>Register</Link> </small></p>
 
