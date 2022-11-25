@@ -7,7 +7,7 @@ const ProductsCategories = () => {
     const { isLoading, error, data: categories = [] } = useQuery({
         queryKey: ['categories'],
         queryFn: () =>
-            fetch('https://server-411c60vt9-merazul-amin.vercel.app/categories').then(res =>
+            fetch('http://localhost:5000/categories').then(res =>
                 res.json()
             )
     })

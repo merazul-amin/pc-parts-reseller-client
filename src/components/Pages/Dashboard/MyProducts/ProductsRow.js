@@ -3,7 +3,7 @@ import React from 'react';
 const ProductsRow = ({ product, i }) => {
     const handleAdvertise = (id) => {
         console.log(id);
-        fetch(`https://server-411c60vt9-merazul-amin.vercel.app/advertise/${id}`, {
+        fetch(`http://localhost:5000/advertise/${id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())

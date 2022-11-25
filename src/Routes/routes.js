@@ -15,6 +15,7 @@ import DashboardLayout from "../Layout/DashboardLayout";
 import Layout from "../Layout/Layout";
 import AdminRoute from "./AdminRoute";
 import PrivateRoute from "./PrivateRoute";
+import SellerRoute from "./SellerRoute";
 
 const routes = createBrowserRouter([
     {
@@ -29,7 +30,7 @@ const routes = createBrowserRouter([
             {
                 path: '/category/:id',
                 element: <PrivateRoute><Categories></Categories></PrivateRoute>,
-                loader: ({ params }) => fetch(`https://server-411c60vt9-merazul-amin.vercel.app/category/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
             }
         ]
     },
@@ -40,10 +41,10 @@ const routes = createBrowserRouter([
         children: [
             { path: '/dashboard', element: <DashboardHome></DashboardHome> },
             { path: '/dashboard/myOrders', element: <MyOrders></MyOrders> },
-            { path: '/dashboard/addProduct', element: <AddProduct></AddProduct> },
+            { path: '/dashboard/addProduct', element: <SellerRoute><AddProduct></AddProduct></SellerRoute> },
             {
                 path: '/dashboard/myProducts',
-                element: <MyProducts></MyProducts>
+                element: <SellerRoute><MyProducts></MyProducts></SellerRoute>
             },
             { path: '/dashboard/allSellers', element: <AdminRoute><AllSellers></AllSellers></AdminRoute> },
             { path: '/dashboard/allBuyers', element: <AdminRoute><AllBuyers></AllBuyers></AdminRoute> },

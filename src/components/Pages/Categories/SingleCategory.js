@@ -1,9 +1,13 @@
 import React from 'react';
 import { GoVerified } from "react-icons/go";
+import { format, compareAsc } from 'date-fns'
 import BookingModal from './BookingModal';
 const SingleCategory = ({ category, setCategory }) => {
 
     const { condition, description, isVerified, location, originalPrice, phone, photoUrl, productName, pruchaseDate, resalePrice, seller, sellerPhoto, used, _id, postingDate } = category;
+
+    const date = new Date(postingDate);
+
 
     const handleSetCategory = () => {
         setCategory(category);
@@ -20,7 +24,7 @@ const SingleCategory = ({ category, setCategory }) => {
                     <p>Resale Price:- {resalePrice}</p>
                     <p>Original Price:- {originalPrice}</p>
                     <p>Years of Used: {used}</p>
-                    <p>Posted at: {`will Do after add products`}</p>
+                    <p>Posted at: {format(date, 'Pp')}</p>
 
                     <div>
                         <h1 className='text-xl font-bold'>Sellers Info</h1>

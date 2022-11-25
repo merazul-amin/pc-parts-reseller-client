@@ -30,7 +30,7 @@ const LogIn = () => {
                     };
 
                     //set User in db
-                    fetch(`https://server-411c60vt9-merazul-amin.vercel.app/users`, {
+                    fetch(`http://localhost:5000/users`, {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json'
@@ -64,7 +64,7 @@ const LogIn = () => {
                 const userInfo = { email: user.email, role: 'buyer' };
 
                 //set User in db
-                fetch(`https://server-411c60vt9-merazul-amin.vercel.app/users`, {
+                fetch(`http://localhost:5000/users`, {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

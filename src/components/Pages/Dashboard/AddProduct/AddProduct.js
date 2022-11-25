@@ -5,12 +5,14 @@ import { AuthContext } from '../../../../contexts/UserContext/UserContext';
 
 const AddProduct = () => {
     const { user } = useContext(AuthContext);
+    console.log(user);
     const navigate = useNavigate();
     const handleAddProduct = (e) => {
         e.preventDefault();
         const form = e.target;
 
         const productName = form.productName.value;
+        const category = form.category.value;
         const productPrice = form.productPrice.value;
         const buyingPrice = form.buyingPrice.value;
         const photoUrl = form.photoUrl.value;
@@ -21,24 +23,40 @@ const AddProduct = () => {
         const description = form.description.value;
         const sellerName = user?.displayName;
         const sellerEmail = user?.email;
-        console.log(productName, productPrice, photoUrl, dateOfPurchase, condition, phone, location, description, sellerEmail, sellerName);
+        // console.log(productName, productPrice, photoUrl, dateOfPurchase, condition, phone, location, description, sellerEmail, sellerName, category);
+        let categoryId = '';
+        if (category === 'Processor') {
+            categoryId = '637e4aa84600a435c1654a3f';
+        }
+        else if (category === 'Motherboard') {
+            categoryId = '637e4aa84600a435c1654a40';
+        }
+        else if (category === 'Ram') {
+            categoryId = '637e4aa84600a435c1654a41'
+        }
         const productInfo = {
             productName,
-            productPrice,
-            buyingPrice,
+            resalePrice: productPrice,
+            originalPrice: buyingPrice,
             photoUrl,
-            dateOfPurchase,
+            purchaseDate: dateOfPurchase,
             condition,
             phone,
             location,
             description,
-            sellerName,
+            seller: sellerName,
             sellerEmail,
             status: 'available',
-            isAdvertised: false
+            isAdvertised: false,
+            categoryId,
+            isVerified: false,
+            sellerPhoto: user?.photoURL,
+            categoryName: category,
+            postingDate: new Date()
         }
+        console.log(productInfo);
 
-        fetch('https://server-411c60vt9-merazul-amin.vercel.app/products', {
+        fetch('http://localhost:5000/products', {
             method: 'POST', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',
@@ -65,6 +83,18 @@ const AddProduct = () => {
                 <p className='text-xl'>Product Name</p>
                 <input required name='productName' type="text" placeholder="Type here" className="input input-bordered input-primary w-full lg:w-[100%]" />
 
+                <p className='text-xl'>Select Category</p>
+                <select required name='category' className="select select-primary w-full lg:w-[100%]">
+                    <option selected>Processor</option>
+                    <option>Motherboard</option>
+                    <option>Ram</option>
+                </select>
+
+
+
+                <p className='text-xl'>Years Of Use</p>
+                <input required name='used' type="text" placeholder="Type here" className="input input-bordered input-primary w-full lg:w-[100%]" />
+
                 <p className='text-xl'>Asking Price</p>
                 <input required name='productPrice' type="text" placeholder="Type here" className="input input-bordered input-primary w-full lg:w-[100%]" />
 
@@ -78,8 +108,8 @@ const AddProduct = () => {
                 <input required name='date' type="date" placeholder="Type here" className="input input-bordered input-primary w-full lg:w-[100%]" />
 
                 <p className='text-xl'>Condition</p>
-                <select name='condition' className="select select-primary w-full lg:w-[100%]">
-                    <option disabled selected>Excellent</option>
+                <select required name='condition' className="select select-primary w-full lg:w-[100%]">
+                    <option selected>Excellent</option>
                     <option>Good</option>
                     <option>Fair</option>
                 </select>
