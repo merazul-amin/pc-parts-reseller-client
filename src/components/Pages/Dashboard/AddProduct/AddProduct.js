@@ -58,7 +58,7 @@ const AddProduct = () => {
         }
         console.log(productInfo);
 
-        fetch('http://localhost:5000/products', {
+        fetch('https://server-gules-beta.vercel.app/products', {
             method: 'POST', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',

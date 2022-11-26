@@ -30,7 +30,7 @@ const routes = createBrowserRouter([
             {
                 path: '/category/:id',
                 element: <PrivateRoute><Categories></Categories></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
+                loader: ({ params }) => fetch(`https://server-gules-beta.vercel.app/category/${params.id}`)
             }
         ]
     },

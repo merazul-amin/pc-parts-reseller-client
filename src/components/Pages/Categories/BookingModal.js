@@ -25,7 +25,7 @@ const BookingModal = ({ category, setCategory }) => {
         }
 
         //set booking in db
-        fetch('http://localhost:5000/booking', {
+        fetch('https://server-gules-beta.vercel.app/booking', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -10,7 +10,7 @@ const MyProducts = () => {
     const { isLoading, error, data: products = [], refetch } = useQuery({
         queryKey: ['myProducts'],
         queryFn: () =>
-            fetch(`http://localhost:5000/myProducts/${user?.email}`)
+            fetch(`https://server-gules-beta.vercel.app/myProducts/${user?.email}`)
                 .then(res =>
                     res.json()
                 )

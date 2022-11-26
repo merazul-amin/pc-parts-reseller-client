@@ -6,7 +6,7 @@ const AdvertiseItems = () => {
     const { isLoading, error, data: products = [] } = useQuery({
         queryKey: ['advertised'],
         queryFn: () =>
-            fetch('http://localhost:5000/advertised').then(res =>
+            fetch('https://server-gules-beta.vercel.app/advertised').then(res =>
                 res.json()
             )
     })

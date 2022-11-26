@@ -26,7 +26,7 @@ const LogIn = () => {
                     setLogError('');
                     //handle jwt token 
 
-                    fetch('http://localhost:5000/jwt', {
+                    fetch('https://server-gules-beta.vercel.app/jwt', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json'
@@ -63,7 +63,7 @@ const LogIn = () => {
                 const userInfo = { email: user.email, role: 'buyer' };
 
                 //set User in db
-                fetch(`http://localhost:5000/users`, {
+                fetch(`https://server-gules-beta.vercel.app/users`, {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -77,7 +77,7 @@ const LogIn = () => {
 
                 //handle jwt token 
 
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://server-gules-beta.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

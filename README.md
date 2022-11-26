@@ -5,8 +5,8 @@
 
 
 ## admin id and password
--email:- admin@gmail.com
--password:- 123456
+- email:- admin@gmail.com
+- password:- 123456
 
 
 ### `Project Features`

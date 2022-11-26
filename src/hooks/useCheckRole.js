@@ -3,7 +3,7 @@ const useCheckRole = (email) => {
     const [role, setRole] = useState(null);
     const [roleIsLoading, setRoleIsLoading] = useState(true);
     if (email) {
-        fetch(`http://localhost:5000/role/${email}`)
+        fetch(`https://server-gules-beta.vercel.app/role/${email}`)
             .then(res => res.json())
             .then(data => {
                 setRole(data.role)

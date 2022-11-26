@@ -8,7 +8,7 @@ const AllBuyers = () => {
     const { isLoading, error, data: buyers = [], refetch } = useQuery({
         queryKey: ['buyers'],
         queryFn: () =>
-            fetch(`http://localhost:5000/buyers/${user?.email}`, {
+            fetch(`https://server-gules-beta.vercel.app/buyers/${user?.email}`, {
                 headers: { token: localStorage.getItem('token') }
             })
                 .then(res => {
@@ -21,7 +21,7 @@ const AllBuyers = () => {
     })
 
     const handleDelete = id => {
-        fetch(`http://localhost:5000/buyer/${id}`, {
+        fetch(`https://server-gules-beta.vercel.app/buyer/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

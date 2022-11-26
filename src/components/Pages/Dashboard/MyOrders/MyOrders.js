@@ -9,7 +9,7 @@ const MyOrders = () => {
     const { isLoading, error, data: orders = [] } = useQuery({
         queryKey: ['bookings'],
         queryFn: () =>
-            fetch(`http://localhost:5000/bookings/${user.email}`, {
+            fetch(`https://server-gules-beta.vercel.app/bookings/${user.email}`, {
                 headers: { token: localStorage.getItem('token') }
             })
                 .then(res => {

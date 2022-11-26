@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 const ProductsRow = ({ product, i, refetch }) => {
 
     const handleAdvertise = (id) => {
-        fetch(`http://localhost:5000/advertise/${id}`, {
+        fetch(`https://server-gules-beta.vercel.app/advertise/${id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -18,7 +18,7 @@ const ProductsRow = ({ product, i, refetch }) => {
     }
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/products/${id}`, {
+        fetch(`https://server-gules-beta.vercel.app/products/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

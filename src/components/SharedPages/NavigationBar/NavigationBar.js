@@ -23,9 +23,7 @@ const NavigationBar = () => {
             user?.email ?
                 <>
                     <li><button onClick={handleLogOut}
-                        className='btn btn-error w-[150px]'>Log Out</button></li>
-                    <li className='text-black'>{user?.email}</li>
-
+                        className='btn btn-error w-full'>Log Out</button></li>
                 </>
                 :
                 <>
@@ -36,7 +34,7 @@ const NavigationBar = () => {
 
         }
 
-        <li><label htmlFor="dashboard-drawer" className="btn btn-primary drawer-button lg:hidden">Open drawer</label></li>
+        <li className='my-3'><label htmlFor="dashboard-drawer" className="btn btn-primary drawer-button lg:hidden w-full">Open drawer</label></li>
 
     </>
     return (

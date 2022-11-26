@@ -6,13 +6,13 @@ const AllSellers = () => {
     const { isLoading, error, data: sellers = [], refetch } = useQuery({
         queryKey: ['sellers'],
         queryFn: () =>
-            fetch('http://localhost:5000/sellers')
+            fetch('https://server-gules-beta.vercel.app/sellers')
                 .then(res =>
                     res.json()
                 )
     })
     const handleDelete = id => {
-        fetch(`http://localhost:5000/seller/${id}`, {
+        fetch(`https://server-gules-beta.vercel.app/seller/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -24,7 +24,7 @@ const AllSellers = () => {
     }
 
     const verifyUser = (id) => {
-        fetch(`http://localhost:5000/users/${id}`, {
+        fetch(`https://server-gules-beta.vercel.app/users/${id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
