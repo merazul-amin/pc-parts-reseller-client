@@ -25,6 +25,9 @@ const Register = () => {
                         navigate('/');
 
                         const userInfo = { name, email: user.email, role };
+                        if (role === 'seller') {
+                            userInfo.isVerified = false;
+                        }
 
                         //set User in db
                         fetch(`http://localhost:5000/users`, {
@@ -103,7 +106,7 @@ const Register = () => {
                 navigate('/');
             })
             .catch(err => {
-
+                setRegisterError(err.message);
             })
     }
 

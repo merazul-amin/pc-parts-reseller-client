@@ -14,18 +14,18 @@ const ProductsCategories = () => {
     })
 
     return (
-        <div className='my-5 text-center'>
+        <div className='my-20 text-center'>
             <h1 className='text-5xl my-5 font-bold '>All Categories</h1>
             {
                 isLoading ?
                     <Spinner></Spinner> :
                     <div className='text-center'>
                         {
-                            categories.length > 0 && categories.map((category, index) => <>
-                                <p key={index} className='font-bold text-2xl text-blue-600 underline'>
+                            categories.length > 0 && categories.map((category, index) =>
+                                <p key={index} className='font-bold text-2xl text-blue-600 underline my-2'>
                                     <Link to={`category/${category._id}`}>{category.partsName}</Link>
                                 </p>
-                            </>)
+                            )
                         }
                     </div>
             }

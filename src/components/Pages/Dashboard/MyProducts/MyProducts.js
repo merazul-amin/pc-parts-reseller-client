@@ -7,7 +7,7 @@ import ProductsRow from './ProductsRow';
 const MyProducts = () => {
     const { user } = useContext(AuthContext);
 
-    const { isLoading, error, data: products = [] } = useQuery({
+    const { isLoading, error, data: products = [], refetch } = useQuery({
         queryKey: ['myProducts'],
         queryFn: () =>
             fetch(`http://localhost:5000/myProducts/${user?.email}`)
@@ -16,7 +16,7 @@ const MyProducts = () => {
                 )
     })
 
-
+    console.log(products);
     return (
         <>
 
@@ -41,7 +41,7 @@ const MyProducts = () => {
                                 </thead>
                                 <tbody>
                                     {
-                                        products.length > 0 && products.map((product, i) => <ProductsRow key={i} i={i} product={product}></ProductsRow>)
+                                        products.length > 0 && products.map((product, i) => <ProductsRow key={i} refetch={refetch} i={i} product={product}></ProductsRow>)
                                     }
 
 
