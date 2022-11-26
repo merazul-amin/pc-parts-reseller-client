@@ -23,11 +23,10 @@ const AllSellers = () => {
     }
     return (
         <div>
-            <h1>All Sellers</h1>
+            <h1 className='text-center my-3 text-3xl'>All Sellers</h1>
             <div>
                 <div className="overflow-x-auto">
                     <table className="table w-full">
-
                         <thead>
                             <tr>
                                 <th></th>
@@ -42,7 +41,7 @@ const AllSellers = () => {
                                     <th>{i + 1}</th>
                                     <td>{seller?.name}</td>
                                     <td>{seller?.email}</td>
-                                    <td><button className='btn btn-error' onClick={() => handleDelete(seller._id)}>X</button></td>
+                                    <td><button className='btn btn-error btn-sm' onClick={() => handleDelete(seller._id)}>X</button></td>
                                 </tr>)
                             }
 

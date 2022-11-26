@@ -1,15 +1,25 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import { AuthContext } from '../../../../contexts/UserContext/UserContext';
 
 const AllBuyers = () => {
+    const { user } = useContext(AuthContext);
+    const [errMsg, setErrMsg] = useState('');
     const { isLoading, error, data: buyers = [], refetch } = useQuery({
         queryKey: ['buyers'],
         queryFn: () =>
-            fetch('http://localhost:5000/buyers')
-                .then(res =>
-                    res.json()
-                )
+            fetch(`http://localhost:5000/buyers/${user?.email}`, {
+                headers: { token: localStorage.getItem('token') }
+            })
+                .then(res => {
+                    if (res.status === 403 || res.status === 401) {
+                        return setErrMsg('Unauthorized Access');
+                    }
+                    setErrMsg('');
+                    return res.json()
+                })
     })
+
     const handleDelete = id => {
         fetch(`http://localhost:5000/buyer/${id}`, {
             method: 'DELETE'
@@ -23,7 +33,7 @@ const AllBuyers = () => {
     }
     return (
         <div>
-            <h1>All Buyers</h1>
+            <h1 className='text-center my-3 text-3xl'>All Buyers</h1>
 
             <div className="overflow-x-auto">
                 <table className="table w-full">
@@ -38,17 +48,18 @@ const AllBuyers = () => {
                     </thead>
                     <tbody>
                         {
-                            buyers.length > 0 && buyers.map((buyer, i) => <tr key={i}>
+                            buyers.length > 0 && buyers.length > 0 && buyers.map((buyer, i) => <tr key={i}>
                                 <th>{i + 1}</th>
                                 <td>{buyer?.name}</td>
                                 <td>{buyer?.email}</td>
-                                <td><button className='btn btn-error' onClick={() => handleDelete(buyer._id)}>X</button></td>
+                                <td><button className='btn btn-error btn-sm' onClick={() => handleDelete(buyer._id)}>X</button></td>
                             </tr>)
                         }
 
 
                     </tbody>
                 </table>
+                <p className='text-red-500 font-bold text-center'>{errMsg && errMsg}</p>
             </div>
         </div>
     );
