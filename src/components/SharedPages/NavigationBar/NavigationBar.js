@@ -51,7 +51,7 @@ const NavigationBar = () => {
                         </ul>
                     </div>
                     <Link to='/' className="btn btn-ghost normal-case text-3xl text-black font-bold">
-                        Pc Reseller Zone
+                        Pc Parts Reseller Zone
                     </Link>
                 </div>
 
