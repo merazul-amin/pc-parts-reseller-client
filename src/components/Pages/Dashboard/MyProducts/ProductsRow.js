@@ -1,4 +1,5 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 
 const ProductsRow = ({ product, i, refetch }) => {
 
@@ -9,7 +10,23 @@ const ProductsRow = ({ product, i, refetch }) => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
+                    toast.success('Product Advertised.')
                     refetch();
+                }
+            })
+            .catch(err => console.log(err))
+    }
+
+    const handleDelete = (id) => {
+        fetch(`http://localhost:5000/products/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.deletedCount > 0) {
+                    refetch();
+                    toast.success('Deleted This Product.')
                 }
             })
             .catch(err => console.log(err))
@@ -25,6 +42,7 @@ const ProductsRow = ({ product, i, refetch }) => {
                 <p>Advertised</p>}
 
             </td>
+            <td><button className='btn btn-error btn-sm' onClick={() => handleDelete(product._id)}>X</button></td>
 
         </tr>
     );

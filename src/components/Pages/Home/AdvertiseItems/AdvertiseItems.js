@@ -10,7 +10,6 @@ const AdvertiseItems = () => {
                 res.json()
             )
     })
-    console.log(products);
     return (
         <>
             {

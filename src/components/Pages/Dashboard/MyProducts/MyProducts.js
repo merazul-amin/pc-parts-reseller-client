@@ -24,7 +24,10 @@ const MyProducts = () => {
                 isLoading ? <Spinner></Spinner>
                     :
                     <div>
-                        <h1>My Products</h1>
+                        <h1 className='text-center text-orange-400 text-4xl'>My Products</h1>
+                        {
+                            products.length === 0 && <p className='text-center my-5'> No Products To Show. Please Add a product first.</p>
+                        }
 
 
                         {products.length > 0 && <div className="overflow-x-auto">
@@ -36,6 +39,7 @@ const MyProducts = () => {
                                         <th>Price</th>
                                         <th>Status</th>
                                         <th>Action</th>
+                                        <th>Delete</th>
 
                                     </tr>
                                 </thead>
