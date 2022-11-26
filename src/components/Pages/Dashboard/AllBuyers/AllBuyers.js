@@ -21,7 +21,6 @@ const AllBuyers = () => {
                 }
             })
     }
-    console.log(buyers);
     return (
         <div>
             <h1>All Buyers</h1>

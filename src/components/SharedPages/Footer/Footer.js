@@ -6,10 +6,10 @@ const Footer = () => {
         <footer className="footer p-10 bg-base-300 text-base-content">
             <div>
                 <span className="footer-title">Services</span>
-                <a className="link link-hover">Branding</a>
-                <a className="link link-hover">Design</a>
-                <a className="link link-hover">Marketing</a>
-                <a className="link link-hover">Advertisement</a>
+                <a className="link link-hover">Reselling</a>
+                <a className="link link-hover">Good Manner</a>
+                <a className="link link-hover">After Sales Service</a>
+                <a className="link link-hover">Satisfaction</a>
             </div>
             <div>
                 <span className="footer-title">Company</span>
@@ -28,7 +28,7 @@ const Footer = () => {
                 <span className="footer-title">Newsletter</span>
                 <div className="form-control w-80">
                     <label className="label">
-                        <span className="label-text">Enter your email address</span>
+                        <span className="label-text">pczone@zone.com</span>
                     </label>
                     <div className="relative">
                         <input type="text" placeholder="username@site.com" className="input input-bordered w-full pr-16" />

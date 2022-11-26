@@ -13,9 +13,37 @@ const BookingModal = ({ category, setCategory }) => {
         const productId = _id;
         const phone = e.target.phone.value;
         const meetingLocation = e.target.location.value;
-        console.log(userName, email, product, productId, phone, meetingLocation);
-        toast.success('Successfully Booked This Item.');
-        setCategory(null);
+        const bookingInfo = {
+            userName,
+            email,
+            product,
+            productId,
+            phone,
+            meetingLocation,
+            photoUrl,
+            resalePrice
+        }
+
+        //set booking in db
+        fetch('http://localhost:5000/booking', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(bookingInfo),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.acknowledged) {
+                    toast.success('Successfully Booked This Item.');
+                    setCategory(null);
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+
+
 
     }
     return (
