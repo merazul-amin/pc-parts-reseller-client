@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../../contexts/UserContext/UserContext';
+import SmallSpinner from '../../SharedPages/Spinner/SmallSpinner';
 
 const LogIn = () => {
     const { logIn, googleLogIn } = useContext(AuthContext);
@@ -9,9 +10,11 @@ const LogIn = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleLogin = (e) => {
         e.preventDefault();
+        setIsLoading(true);
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
@@ -19,6 +22,7 @@ const LogIn = () => {
             logIn(email, password)
                 .then((userCredential) => {
                     // Signed in 
+                    setIsLoading(false);
                     const user = userCredential.user;
                     const UserEmail = { email: user.email };
 
@@ -114,8 +118,9 @@ const LogIn = () => {
 
                 <p className='mb-3'><small>New here? <Link className='underline text-blue-400 font-bold' to='/register'>Register</Link> </small></p>
 
-
-                <button type='submit' className='btn btn-success w-full my-5'>Log In</button>
+                <button type='submit' className='btn btn-success w-full my-5'>
+                    {isLoading ? <SmallSpinner></SmallSpinner> : 'Log In'}
+                </button>
 
 
 

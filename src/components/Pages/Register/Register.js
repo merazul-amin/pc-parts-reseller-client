@@ -2,11 +2,13 @@ import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../../contexts/UserContext/UserContext';
+import SmallSpinner from '../../SharedPages/Spinner/SmallSpinner';
 
 const Register = () => {
     const { createUser, setUserInfo, googleLogIn } = useContext(AuthContext);
     const [registerError, setRegisterError] = useState('');
     const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState(false);
     const handleRegister = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -15,13 +17,14 @@ const Register = () => {
         const password = form.password.value;
         const role = form.role.value;
         const imgUrl = form.image.value;
-
+        setIsLoading(true);
         createUser(email, password)
             .then(res => {
                 const user = res.user;
                 setUserInfo(name, imgUrl)
                     .then(() => {
                         toast.success(`Welcome ${name}`);
+                        setIsLoading(false);
                         navigate('/');
 
                         const userInfo = { name, email: user.email, role };
@@ -144,7 +147,9 @@ const Register = () => {
 
                 <p className='text-red-500 font-bold'>{registerError && registerError}</p>
 
-                <button type='submit' className='btn btn-success w-full my-5'>Register</button>
+                <button type='submit' className='btn btn-success w-full my-5'>{
+                    isLoading ? <SmallSpinner></SmallSpinner> : 'Register'
+                }</button>
 
 
 

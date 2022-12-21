@@ -22,7 +22,7 @@
 
 ### Important Links
 
-Live site link is here: [live site](https://assignment-12-69464.web.app/).
+Live site link is here: [live site](https://pc-parts-reseller-zone.web.app/).
 
 
 
