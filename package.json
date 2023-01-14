@@ -13,6 +13,7 @@
     "date-fns": "^2.29.3",
     "firebase": "^9.13.0",
     "react": "^18.2.0",
+    "react-animated-text": "^0.1.4",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
     "react-hook-form": "^7.39.1",
