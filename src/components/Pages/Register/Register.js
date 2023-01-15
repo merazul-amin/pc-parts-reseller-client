@@ -118,6 +118,13 @@ const Register = () => {
 
 
             <form onSubmit={handleRegister} >
+                <div>
+                    <h1 className='font-bold'>Login info is given for testing purpose of all the routes.</h1>
+                    <p>Admin:- admin@gmail.com</p>
+                    <p>Buyer:- buyer@gmail.com</p>
+                    <p>Seller:- seller@gmail.com</p>
+                    <p>Password is same for all of them. Password is 123456</p>
+                </div>
                 <h1 className='text-2xl mt-5'>Name</h1>
                 <input required name='name' type="text" placeholder="Your Name" className="input input-bordered input-success w-full" />
 

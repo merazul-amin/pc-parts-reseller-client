@@ -25,11 +25,9 @@ const LogIn = () => {
                     setIsLoading(false);
                     const user = userCredential.user;
                     const UserEmail = { email: user.email };
-
                     const JwtEmail = { email: user.email };
                     setLogError('');
                     //handle jwt token 
-
                     fetch('https://server-gules-beta.vercel.app/jwt', {
                         method: 'POST',
                         headers: {
@@ -51,18 +49,14 @@ const LogIn = () => {
                     setLogError(error.message)
                 });
         }
-
     }
 
     const handleGoogleLogIn = () => {
-
         googleLogIn()
             .then(res => {
                 setLogError('');
                 const user = res.user;
                 const UserEmail = { email: user.email };
-
-
                 setLogError('');
                 const userInfo = { email: user.email, role: 'buyer' };
 
@@ -78,7 +72,6 @@ const LogIn = () => {
                     .then(data => console.log(data))
 
                 const JwtEmail = { email: user.email };
-
                 //handle jwt token 
 
                 fetch('https://server-gules-beta.vercel.app/jwt', {
@@ -92,7 +85,6 @@ const LogIn = () => {
                     .then(data => {
                         localStorage.setItem('token', data.token);
                     })
-
                 toast.success('Log In Successful.');
                 navigate(from, { replace: true });
             })
@@ -106,6 +98,13 @@ const LogIn = () => {
 
 
             <form onSubmit={handleLogin} >
+                <div>
+                    <h1 className='font-bold'>Login info is given for testing purpose of all the routes.</h1>
+                    <p>Admin:- admin@gmail.com</p>
+                    <p>Buyer:- buyer@gmail.com</p>
+                    <p>Seller:- seller@gmail.com</p>
+                    <p>Password is same for all of them. Password is 123456</p>
+                </div>
 
                 <h1 className='text-2xl mt-2'>Email</h1>
                 <input name='email' type="email" placeholder="Your Email" className="input input-bordered input-success w-full" />
