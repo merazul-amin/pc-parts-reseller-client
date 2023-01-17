@@ -36,7 +36,9 @@ const RecentNews = () => {
 
             </div>
             <div className="grid gap-4 row-gap-5 sm:grid-cols-2 lg:grid-cols-4">
-                <div className="flex flex-col justify-between p-5 border rounded shadow-sm">
+                <div data-aos="flip-left"
+                    data-aos-easing="ease-out-cubic"
+                    data-aos-duration="2000" className="flex flex-col justify-between p-5 border rounded shadow-sm">
                     <div>
                         <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-indigo-50">
                             <svg
@@ -67,7 +69,9 @@ const RecentNews = () => {
                         Read More...
                     </a>
                 </div>
-                <div className="flex flex-col justify-between p-5 border rounded shadow-sm">
+                <div data-aos="flip-left"
+                    data-aos-easing="ease-out-cubic"
+                    data-aos-duration="2000" className="flex flex-col justify-between p-5 border rounded shadow-sm">
                     <div>
                         <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-indigo-50">
                             <svg
@@ -98,7 +102,9 @@ const RecentNews = () => {
                         Read More...
                     </a>
                 </div>
-                <div className="flex flex-col justify-between p-5 border rounded shadow-sm">
+                <div data-aos="flip-left"
+                    data-aos-easing="ease-out-cubic"
+                    data-aos-duration="2000" className="flex flex-col justify-between p-5 border rounded shadow-sm">
                     <div>
                         <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-indigo-50">
                             <svg
@@ -129,7 +135,9 @@ const RecentNews = () => {
                         Read More...
                     </a>
                 </div>
-                <div className="flex flex-col justify-between p-5 border rounded shadow-sm">
+                <div data-aos="flip-left"
+                    data-aos-easing="ease-out-cubic"
+                    data-aos-duration="2000" className="flex flex-col justify-between p-5 border rounded shadow-sm">
                     <div>
                         <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-indigo-50">
                             <svg

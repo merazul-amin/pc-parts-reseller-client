@@ -115,8 +115,6 @@ const Register = () => {
 
     return (
         <div className='w-[95%] lg:w-[50%] mx-auto'>
-
-
             <form onSubmit={handleRegister} >
                 <div>
                     <h1 className='font-bold'>Login info is given for testing purpose of all the routes.</h1>

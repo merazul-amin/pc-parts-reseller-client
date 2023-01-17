@@ -2,8 +2,8 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../../contexts/UserContext/UserContext';
-
-
+import Typewriter from 'typewriter-effect';
+import './NavigationBar.css';
 const NavigationBar = () => {
     const { user, logOut } = useContext(AuthContext);
 
@@ -50,8 +50,14 @@ const NavigationBar = () => {
                             {navItems}
                         </ul>
                     </div>
-                    <Link to='/' className="btn btn-ghost normal-case text-3xl text-black font-bold">
-                        Pc Parts Reseller Zone
+                    <Link to='/' className="text-black btn btn-ghost normal-case text-3xl font-bold">
+                        <Typewriter
+                            options={{
+                                strings: [' Pc Parts Reseller Zone'],
+                                autoStart: true,
+                                loop: true,
+                            }}
+                        />
                     </Link>
                 </div>
 
