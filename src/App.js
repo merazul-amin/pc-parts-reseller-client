@@ -8,7 +8,7 @@ import 'aos/dist/aos.css'; // You can also use <link> for styles
 AOS.init();
 function App() {
   return (
-    <div>
+    <div className='max-w-[1400px] mx-auto'>
       <ToastContainer
         position="top-center"
         autoClose={2000}

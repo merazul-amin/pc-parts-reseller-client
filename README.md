@@ -15,6 +15,7 @@
 - Website is all about used pc parts business.
 - All the categories are pc parts related.
 - I used React for frontend library, node and express for server and mongodb for database.
+- For Some Components I used Material Ui.
 - For Authentication I used Firebase.
 - For css framework I used tailwind css and daisyui.
 - I implemented jwt token , react query and axios in this project.
