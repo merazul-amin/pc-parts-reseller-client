@@ -35,7 +35,7 @@ const ProductsCategories = () => {
                 isLoading ?
                     <Spinner></Spinner> :
                     <div className='relative'>
-                        <h1 className='text-2xl font-bold'>Browse Products By Category</h1>
+                        <h1 className='text-2xl font-bold mb-5'>Browse Products By Category</h1>
                         {/* This is for loading Modal */}
                         <div className=''>
                             {
@@ -63,7 +63,7 @@ const ProductsCategories = () => {
                                 </div> : ''
                             }
                         </div>
-                        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 '>
+                        <div className='flex flex-wrap gap-5  justify-around'>
                             {
                                 categories.length > 0 && categories.map((category, index) =>
                                     <div key={index}>
